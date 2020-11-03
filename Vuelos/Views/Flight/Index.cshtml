@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="Airlines" ng-controller="AirlinesCtrl as vm" data-ng-init="vm.init()">
+
+    <div class="container-fluid">
+
+
+        <!--body-->
+        <div class="container">    
+
+            <div id="bookTicket" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">BOOK YOUR TRIP</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div layout="column">
+                                    <div layout="row flex">
+                                        <div class="btn-group">
+                                            <label class="radio-inline"><input type="radio" name="round" value="roundTrip" checked="checked">Round trip</label>
+                                            <label class="radio-inline"><input type="radio" name="round" value="oneWay">One way</label>
+                                        </div>
+                                    </div>
+                                    <div layout="row" flex>
+                                        <div class="form-group" flex="45">
+                                            <label for="origin">Origin</label>
+                                            <select class="form-control" id="origin">
+                                                <option ng-repeat="airport in vm.fromAirport" value={{airport.name}}>{{airport.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div flex="10"></div>
+                                        <div class="form-group" flex="45">
+                                            <label for="destination">Destination</label>
+                                            <select class="form-control" id="destination">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div layout="row" flex>
+                                        <div class="form-group" flex="45">
+                                            <label for="depart">Depart</label>
+                                            <input id="dateDepart" name="date" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" class="form-control">
+                                        </div>
+                                        <div flex="10"></div>
+                                        <div id="return" class="form-group" flex="45">
+                                            <label for="return">Return</label>
+                                            <input id="dateReturn" name="date" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div layout="row" flex>
+                                        <div class="form-group" flex="20">
+                                            <label for="adult">Adult (>=12)</label>
+                                            <select class="form-control" id="adult">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <div flex="5"></div>
+                                        <div class="form-group" flex="20">
+                                            <label for="children-less-2">Infant</label>
+                                            <select class="form-control" id="children-less-2">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                        <div flex="5"></div>
+                                        <div class="form-group" flex="20">
+                                            <label for="children-more-2">Children (2->12)</label>
+                                            <select class="form-control" id="children-more-2">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnSearchFlight" type="button" class="btn btn-default" data-dismiss="modal">Search Flight</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Flight</th>
+                        <th>Depart</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in data">
+                        <td>{{item.flight}}</td>
+                        <td>{{item.depart}}</td>
+                        <td>{{item.from}}</td>
+                        <td>{{item.to}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--Fotter-->
+        <div class="container-fluid">
+
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+</body>
+</html>
+

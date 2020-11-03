@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vuelosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartureStation" Type="varchar" MaxLength="50" />
+    <Property Name="ArrivalStation" Type="varchar" MaxLength="50" />
+    <Property Name="DepartureDate" Type="datetime" />
+    <Property Name="Transport_Id" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Currency" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Iata" Type="varchar" MaxLength="3" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FLightNumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Flight_Transport1">
+    <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transport">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Transport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="vuelosModelStoreContainer">
+    <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Flight_Transport1" Association="Self.FK_Flight_Transport1">
+      <End Role="Transport" EntitySet="Transport" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

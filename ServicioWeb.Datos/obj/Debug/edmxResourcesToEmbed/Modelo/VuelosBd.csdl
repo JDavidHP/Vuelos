@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vuelosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartureStation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ArrivalStation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DepartureDate" Type="DateTime" Precision="3" />
+    <Property Name="Transport_Id" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Transport" Relationship="Self.FK_Flight_Transport1" FromRole="Flight" ToRole="Transport" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Iata" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FLightNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Flight" Relationship="Self.FK_Flight_Transport1" FromRole="Transport" ToRole="Flight" />
+  </EntityType>
+  <Association Name="FK_Flight_Transport1">
+    <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transport">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Transport_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VuelosConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Flight" EntityType="Self.Flight" />
+    <EntitySet Name="Station" EntityType="Self.Station" />
+    <EntitySet Name="Transport" EntityType="Self.Transport" />
+    <AssociationSet Name="FK_Flight_Transport1" Association="Self.FK_Flight_Transport1">
+      <End Role="Transport" EntitySet="Transport" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,12 @@
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\ServicioWeb.Datos.dll.config
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\ServicioWeb.Datos.dll
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\ServicioWeb.Datos.pdb
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\EntityFramework.dll
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\EntityFramework.SqlServer.dll
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\EntityFramework.xml
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\EntityFramework.SqlServer.xml
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\es\EntityFramework.resources.dll
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\obj\Debug\ServicioWeb.Datos.csprojResolveAssemblyReference.cache
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\obj\Debug\ServicioWeb.Datos.dll
+D:\PROYECTOS .NET\VuelosPrueba\ServicioWeb.Datos\obj\Debug\ServicioWeb.Datos.pdb

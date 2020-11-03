@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vuelosModelStoreContainer" CdmEntityContainer="VuelosConnection">
+    <EntitySetMapping Name="Flight">
+      <EntityTypeMapping TypeName="vuelosModel.Flight">
+        <MappingFragment StoreEntitySet="Flight">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DepartureStation" ColumnName="DepartureStation" />
+          <ScalarProperty Name="ArrivalStation" ColumnName="ArrivalStation" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="Transport_Id" ColumnName="Transport_Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Station">
+      <EntityTypeMapping TypeName="vuelosModel.Station">
+        <MappingFragment StoreEntitySet="Station">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Iata" ColumnName="Iata" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transport">
+      <EntityTypeMapping TypeName="vuelosModel.Transport">
+        <MappingFragment StoreEntitySet="Transport">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FLightNumber" ColumnName="FLightNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

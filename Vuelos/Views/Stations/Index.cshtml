@@ -1,0 +1,53 @@
+﻿@model ServicioWeb.Datos.Modelo.Station
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+
+<body ng-app="Airlines" ng-controller="AirlinesCtrl as vm" data-ng-init="vm.init()">
+
+    <div class="container-fluid header">
+        <image class="header-image" src="https://www.vivaair.com/static/img/logo.svg?v=4" style="height:60px; margin-top:1%">
+    </div>
+
+
+    <div class="jumbotron" style="background-image: url(https://ingeniohidrico.com/images/servicio1.jpg); width: 100%;margin-top:2%;">
+        <div class="col-md-12">
+            <div class"row">
+                <div class="col-md-4">
+                    @Html.DropDownList("Origen", items, "Origen", new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownList("Destino", items, "Destino", new { @class = "form-control" })
+                </div>
+                <div class="col-md-4" id="fecha">
+                    @Html.EditorFor(Data => Data.Fecha, new { htmlAttributes = new { @class = "form-control datepicker", Value = @ViewData["fechaActual"], @type = "date" } })
+                </div>
+            </div>
+        </div>
+        <div>
+            <center><p><a class="btn btn-primary" onclick="" style="background-color:white;color:black;margin-top: 7%;">Buscar vuelos </a></p></center>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+</body>
+</html>

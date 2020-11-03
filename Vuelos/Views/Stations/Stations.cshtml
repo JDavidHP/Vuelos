@@ -1,0 +1,24 @@
+﻿@model  ServicioWeb.Datos.Modelo.Station
+
+@{
+    ViewBag.Title = "Stations";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+}
+<div class="jumbotron" style="background-image: url(https://ingeniohidrico.com/images/servicio1.jpg); width: 100%;margin-top:2%;">
+    <div class="col-md-12">
+        <div class"row">
+            <div class="col-md-4">
+                @Html.DropDownList("Origen", items, "Origen", new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownList("Destino", items, "Destino", new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(Data => Data.Fecha, new { htmlAttributes = new { @class = "form-control datepicker", Value = @ViewData["fechaActual"], @type = "date" } })
+            </div>
+        </div>
+    </div>
+    <div>
+        <center><p><a class="btn btn-primary" style="background-color:white;color:black;margin-top: 7%;">Buscar vuelos </a></p></center>
+    </div>
+</div>
